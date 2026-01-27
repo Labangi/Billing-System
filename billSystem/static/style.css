@@ -226,3 +226,153 @@ body {
         opacity: 1;
     }
 }
+
+/* --- Login Page Specific Styles --- */
+
+.login-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    padding: 2rem;
+    background-color: #1d1c21; /* Main Background */
+}
+
+/* Page Heading "Login...." */
+.page-title {
+    font-size: 2.5rem;
+    color: #f9ffff;
+    margin-bottom: 2rem;
+    font-weight: bold;
+    letter-spacing: 2px;
+    
+    /* Animation: Slide Down */
+    animation: slideDown 0.8s ease-out;
+}
+
+/* The Box Container */
+.login-card {
+    width: 100%;
+    max-width: 450px;
+    background-color: transparent;
+    border: 2px solid #f9ffff; /* White border as per wireframe */
+    border-radius: 15px;
+    padding: 3rem;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+    
+    /* Animation: Fade Up */
+    opacity: 0;
+    animation: fadeInUp 1s ease-out 0.3s forwards;
+}
+
+.form-title {
+    font-size: 1.5rem;
+    color: #f9ffff;
+    margin-bottom: 2rem;
+    font-style: italic; /* Matches wireframe style */
+    font-weight: 500;
+    border-bottom: 1px solid #474f52; /* Subtle separation */
+    padding-bottom: 10px;
+    display: inline-block;
+}
+
+.form-group {
+    margin-bottom: 1.5rem;
+    text-align: left;
+}
+
+.form-group label {
+    display: block;
+    color: #f9ffff;
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+    font-size: 1rem;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 12px;
+    background-color: transparent;
+    border: 2px solid #9c9d97; /* Grey border */
+    border-radius: 8px;
+    color: #f9ffff;
+    font-size: 1rem;
+    box-sizing: border-box; /* Ensures padding doesn't break width */
+    transition: border-color 0.3s ease;
+}
+
+.form-group input:focus {
+    outline: none;
+    border-color: #f9ffff; /* Highlights white on focus */
+}
+
+/* Buttons */
+.btn-primary {
+    width: 100%;
+    padding: 12px;
+    background-color: #825432; /* Brown Accent from Palette */
+    color: #f9ffff;
+    border: none;
+    border-radius: 8px;
+    font-size: 1.1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    margin-top: 1rem;
+}
+
+.btn-primary:hover {
+    background-color: #6a4328;
+    transform: translateY(-2px);
+}
+
+.divider {
+    text-align: center;
+    margin: 1.5rem 0;
+    color: #f9ffff;
+    font-weight: bold;
+    position: relative;
+}
+
+/* Optional lines next to "Or" */
+.divider::before, .divider::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    width: 40%;
+    height: 1px;
+    background-color: #474f52;
+}
+.divider::before { left: 0; }
+.divider::after { right: 0; }
+
+.btn-outline {
+    width: 100%;
+    padding: 12px;
+    background-color: transparent;
+    border: 2px solid #f9ffff;
+    color: #f9ffff;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: 500;
+    cursor: pointer;
+    margin-bottom: 1rem;
+    transition: all 0.3s ease;
+}
+
+.btn-outline:hover {
+    background-color: #f9ffff;
+    color: #1d1c21;
+}
+
+/* Animations (Reuse from Home Page) */
+@keyframes slideDown {
+    from { transform: translateY(-30px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+}
+
+@keyframes fadeInUp {
+    from { transform: translateY(30px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+}
