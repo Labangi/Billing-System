@@ -43,3 +43,14 @@ def add_customer(request):
     u.role=request.GET['role']
     u.save()
     return redirect('../')
+
+def show(request):
+    users = user.objects.all()
+    return render(request, "show.html", {"users": users})
+
+def update_role(request, id):
+    if request.method == "POST":
+        user = user.objects.get(id=id)
+        user.role = request.POST.get("role")
+        user.save()
+    return redirect("../show.html")
