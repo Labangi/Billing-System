@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Show Users</h1>
+    <table>
+    <tr>
+        <th>Name</th>
+        <th>Email</th>
+        <th>Role</th>
+        <th>Action</th>
+        <th>Action</th>
+    </tr>
+
+    {% for i in data %}
+    <tr>
+        <td>{{ i.name }}</td>
+        <td>{{ i.email }}</td>
+
+        <!-- Role dropdown -->
+        <td>
+            <form method="post" action="{% url 'update_role' i.id %}">
+                {% csrf_token %}
+                <select name="role" onchange="this.form.submit()">
+                    <option value="super_admin" {% if i.role == 'super_admin' %}selected{% endif %}>
+                        Super Admin
+                    </option>
+                    <option value="sub_admin" {% if i.role == 'sub_admin' %}selected{% endif %}>
+                        Sub Admin
+                    </option>
+                    <option value="user" {% if i.role == 'user' %}selected{% endif %}>
+                        User
+                    </option>
+                </select>
+            </form>
+        </td>
+    </tr>
+    {% endfor %}
+</table>
+
+</body>
+</html>

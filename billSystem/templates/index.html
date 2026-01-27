@@ -1,11 +1,44 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>CrediFlow - Home</title>
+    <link rel="stylesheet" href="{% static 'style.css' %}">
 </head>
 <body>
-    
+
+    <header class="header">
+        <div class="logo-container">
+            <img src="{% static 'logo.jpeg' %}" alt="CrediFlow Logo" class="logo-img">
+            <span class="company-name-header">CrediFlow</span>
+        </div>
+        <nav class="nav-links">
+            <a href="#">About Us</a>
+            <a href="#">Contact Us</a>
+            <a href="#">Help</a>
+        </nav>
+        <div class="auth-buttons">
+            <button class="login-btn">Login</button>
+        </div>
+    </header>
+
+    <main class="hero-section">
+        <div class="hero-content">
+            <h2 class="hero-company-name">CrediFlow</h2>
+            
+            <div class="hero-body">
+                <div class="image-container">
+                    <img src="{% static 'image2.jpeg' %}" alt="CrediFlow Dashboard" class="hero-image">
+                </div>
+                <div class="text-container">
+                    <h1 class="main-heading">welcome to our <br> company website</h1>
+                    <button class="get-started-btn">Get Started</button>
+                </div>
+            </div>
+        </div>
+    </main>
+
 </body>
 </html>
