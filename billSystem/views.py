@@ -13,4 +13,21 @@ def login(request):
     return render(request,'login.html')
 
 def loginn(request):
-    pass
+    
+    username=request.GET['a1']
+    pwd=request.GET['a2']
+    if user.objects.filter(username=username,pwd=pwd):
+        u=user.objects.filter(username=username,pwd=pwd).first()
+        x={'username':u.username,'pwd':u.pwd}
+        request.session['aec']=x
+        return render(request,'admin.html')
+
+    else:
+        return render(request,'index.html')
+
+def logout(request):
+    try:
+        del request.session['aec']
+        return render(request,'index.html')
+    except KeyError:
+        pass
