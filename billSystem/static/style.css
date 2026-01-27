@@ -1,4 +1,5 @@
 
+
 /* Global Styles */
 body {
     margin: 0;
@@ -227,3 +228,382 @@ body {
         opacity: 1;
     }
 }
+/* Global Styles */
+body {
+    margin: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #1d1c21;
+    color: #f9ffff;
+    overflow-x: hidden; /* Prevent scrollbars during animations */
+}
+
+/* Header Styles */
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.5rem 3rem;
+    background-color: transparent;
+    
+    /* Animation: Slide Down */
+    animation: slideDown 1s ease-out;
+}
+
+.logo-container {
+    display: flex;
+    align-items: center;
+}
+
+.logo-img {
+    height: 40px;
+    margin-right: 10px;
+}
+
+.company-name-header {
+    font-size: 1.5rem;
+    font-weight: bold;
+    letter-spacing: 1px;
+}
+
+/* Nav Links with Underline Animation */
+.nav-links a {
+    margin: 0 1.5rem;
+    text-decoration: none;
+    color: #f9ffff;
+    font-weight: 500;
+    position: relative; /* Needed for the underline effect */
+    transition: color 0.3s ease;
+}
+
+.nav-links a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: -5px;
+    left: 0;
+    background-color: #9c9d97;
+    transition: width 0.3s ease;
+}
+
+.nav-links a:hover {
+    color: #9c9d97;
+}
+
+.nav-links a:hover::after {
+    width: 100%; /* Line expands on hover */
+}
+
+.login-btn {
+    background-color: transparent;
+    border: 2px solid #f9ffff;
+    color: #f9ffff;
+    padding: 0.5rem 1.5rem;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: all 0.3s ease;
+}
+
+.login-btn:hover {
+    background-color: #f9ffff;
+    color: #1d1c21;
+    transform: translateY(-2px); /* Slight lift */
+}
+
+/* Hero Section Styles */
+.hero-section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: calc(100vh - 100px);
+    padding: 2rem 3rem;
+}
+
+.hero-content {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    max-width: 1100px;
+    border: 2px solid #474f52;
+    padding: 2rem 3rem;
+    border-radius: 30px;
+    background-color: #1d1c21;
+
+    /* Animation: Fade In Up */
+    opacity: 0; /* Start hidden */
+    animation: fadeInUp 1s ease-out 0.3s forwards; /* 0.3s delay */
+}
+
+.hero-company-name {
+    text-align: center;
+    font-size: 2rem;
+    margin-top: 0;
+    margin-bottom: 2rem;
+    text-transform: uppercase;
+    font-weight: 800;
+    letter-spacing: 2px;
+}
+
+.hero-body {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.image-container {
+    flex: 1;
+    padding-right: 2rem;
+    
+    /* Animation: Slide In Left */
+    opacity: 0;
+    animation: slideInLeft 1s ease-out 0.6s forwards; /* 0.6s delay */
+}
+
+.hero-image {
+    width: 100%;
+    max-width: 450px;
+    height: auto;
+    border-radius: 10px;
+    transition: transform 0.3s ease;
+}
+
+.hero-image:hover {
+    transform: scale(1.02); /* Gentle zoom */
+}
+
+.text-container {
+    flex: 1;
+    text-align: right;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    
+    /* Animation: Slide In Right */
+    opacity: 0;
+    animation: slideInRight 1s ease-out 0.6s forwards; /* 0.6s delay */
+}
+
+.main-heading {
+    font-size: 3rem;
+    line-height: 1.2;
+    margin-bottom: 2rem;
+    text-transform: lowercase;
+}
+
+/* Button Glow Animation */
+.get-started-btn {
+    background-color: transparent;
+    border: 2px solid #f9ffff;
+    color: #f9ffff;
+    padding: 0.8rem 2rem;
+    font-size: 1.2rem;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.get-started-btn:hover {
+    background-color: #f9ffff;
+    color: #1d1c21;
+    transform: scale(1.05); /* Pop effect */
+    box-shadow: 0 0 15px rgba(249, 255, 255, 0.4); /* Glow */
+}
+
+/* --- Keyframes (The Logic) --- */
+
+@keyframes slideDown {
+    from {
+        transform: translateY(-50px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+@keyframes fadeInUp {
+    from {
+        transform: translateY(30px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+@keyframes slideInLeft {
+    from {
+        transform: translateX(-30px);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+@keyframes slideInRight {
+    from {
+        transform: translateX(30px);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+/* --- Login Page Specific Styles --- */
+
+.login-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    padding: 2rem;
+    background-color: #1d1c21; /* Main Background */
+}
+
+/* Page Heading "Login...." */
+.page-title {
+    font-size: 2.5rem;
+    color: #f9ffff;
+    margin-bottom: 2rem;
+    font-weight: bold;
+    letter-spacing: 2px;
+    
+    /* Animation: Slide Down */
+    animation: slideDown 0.8s ease-out;
+}
+
+/* The Box Container */
+.login-card {
+    width: 100%;
+    max-width: 450px;
+    background-color: transparent;
+    border: 2px solid #f9ffff; /* White border as per wireframe */
+    border-radius: 15px;
+    padding: 3rem;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+    
+    /* Animation: Fade Up */
+    opacity: 0;
+    animation: fadeInUp 1s ease-out 0.3s forwards;
+}
+
+.form-title {
+    font-size: 1.5rem;
+    color: #f9ffff;
+    margin-bottom: 2rem;
+    font-style: italic; /* Matches wireframe style */
+    font-weight: 500;
+    border-bottom: 1px solid #474f52; /* Subtle separation */
+    padding-bottom: 10px;
+    display: inline-block;
+}
+
+.form-group {
+    margin-bottom: 1.5rem;
+    text-align: left;
+}
+
+.form-group label {
+    display: block;
+    color: #f9ffff;
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+    font-size: 1rem;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 12px;
+    background-color: transparent;
+    border: 2px solid #9c9d97; /* Grey border */
+    border-radius: 8px;
+    color: #f9ffff;
+    font-size: 1rem;
+    box-sizing: border-box; /* Ensures padding doesn't break width */
+    transition: border-color 0.3s ease;
+}
+
+.form-group input:focus {
+    outline: none;
+    border-color: #f9ffff; /* Highlights white on focus */
+}
+
+/* Buttons */
+.btn-primary {
+    width: 100%;
+    padding: 12px;
+    background-color: #825432; /* Brown Accent from Palette */
+    color: #f9ffff;
+    border: none;
+    border-radius: 8px;
+    font-size: 1.1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    margin-top: 1rem;
+}
+
+.btn-primary:hover {
+    background-color: #6a4328;
+    transform: translateY(-2px);
+}
+
+.divider {
+    text-align: center;
+    margin: 1.5rem 0;
+    color: #f9ffff;
+    font-weight: bold;
+    position: relative;
+}
+
+/* Optional lines next to "Or" */
+.divider::before, .divider::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    width: 40%;
+    height: 1px;
+    background-color: #474f52;
+}
+.divider::before { left: 0; }
+.divider::after { right: 0; }
+
+.btn-outline {
+    width: 100%;
+    padding: 12px;
+    background-color: transparent;
+    border: 2px solid #f9ffff;
+    color: #f9ffff;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: 500;
+    cursor: pointer;
+    margin-bottom: 1rem;
+    transition: all 0.3s ease;
+}
+
+.btn-outline:hover {
+    background-color: #f9ffff;
+    color: #1d1c21;
+}
+
+/* Animations (Reuse from Home Page) */
+@keyframes slideDown {
+    from { transform: translateY(-30px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+}
+
+@keyframes fadeInUp {
+    from { transform: translateY(30px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+}
+
