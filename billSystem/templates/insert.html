@@ -1,0 +1,41 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Insert Customer</title>
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+</head>
+
+<body bgcolor="purple">
+
+    <ul>
+        <li><a href="index">Home</a></li>
+        <li><a href="show_customers">View Customers</a></li>
+    </ul>
+
+    <div class="form-container">
+        <h3>Customer Insert Form</h3>
+
+        <form action="" method="get">
+            {% csrf_token %}
+            
+            <label>Username</label>
+            <input type="text" name="username" placeholder="Enter Username">
+
+            <label>Password</label>
+            <input type="password" name="password" placeholder="Enter Password">
+
+            <label>Email</label>
+            <input type="email" name="email" placeholder="Enter Email">
+
+            <label>Role</label>
+            <input type="text" name="role" placeholder="Enter Role">
+
+            <input type="submit" value="Add Customer ✔">
+        </form>
+    </div>
+
+</body>
+</html>
