@@ -60,3 +60,6 @@ def contact(request):
     return render(request,"contact.html")
 def services(request):
     return render(request,"services.html")
+
+def admin_dashboard(request):
+    return render(request, 'admin.html')

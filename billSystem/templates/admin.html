@@ -1,0 +1,100 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>CrediFlow Admin</title>
+    <link rel="stylesheet" href="{% static 'dashboard.css' %}">
+
+</head>
+<body>
+
+<!-- HEADER -->
+<header class="header">
+    <div class="logo-container">
+        <h2>CrediFlow</h2>
+    </div>
+
+    <nav class="nav-links">
+        <a href="/admin-dashboard/">Home</a>
+        <a href="/show">View Users</a>
+        <a href="#">View Trainings</a>
+        <a href="#">Bills</a>
+        <a href="#">Reminders</a>
+    </nav>
+
+    <div class="auth-buttons">
+        <a href="/logout" class="login-btn">Logout</a>
+    </div>
+</header>
+
+<!-- MAIN CONTENT -->
+<main class="features-section">
+
+    <!-- WELCOME -->
+    <section class="welcome-section">
+        <h2>Welcome, Admin</h2>
+        <p class="sub-heading">
+            Overview of billing and system activities.
+        </p>
+    </section>
+
+    <!-- ACTION BUTTONS -->
+    <section class="action-bar">
+        <button class="btn primary">Export CSV</button>
+        <button class="btn secondary">Add Training</button>
+        <a href="/insert" class="btn secondary">Add Customer</a>
+        <button class="btn secondary">Bills List</button>
+    </section>
+
+    <!-- SUMMARY -->
+    <section class="summary-section">
+        <h3>Global Summary (All Data)</h3>
+
+        <div class="cards-grid">
+            <div class="feature-card">
+                <h4>Total Bills</h4>
+                <p>Total number of bills generated.</p>
+            </div>
+
+            <div class="feature-card">
+                <h4>Total Amount</h4>
+                <p>Total billing amount.</p>
+            </div>
+
+            <div class="feature-card">
+                <h4>Trainings</h4>
+                <p>Total training records.</p>
+            </div>
+
+            <div class="feature-card">
+                <h4>Pending Bills</h4>
+                <p>Bills awaiting payment.</p>
+            </div>
+
+            <div class="feature-card">
+                <h4>Overdue Bills</h4>
+                <p>Bills past the due date.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- EXTRA INFO -->
+    <section class="extra-section">
+        <div class="cards-grid">
+            <div class="feature-card">
+                <h4>Due Soon</h4>
+                <p>No upcoming dues.</p>
+            </div>
+
+            <div class="feature-card">
+                <h4>Overdue Details</h4>
+                <p>No overdue bills.</p>
+            </div>
+        </div>
+    </section>
+
+</main>
+
+</body>
+</html>

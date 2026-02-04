@@ -13,7 +13,7 @@ class user(models.Model):
 
 class billInfo(models.Model):
     user = models.ForeignKey(
-        User,
+        user,
         on_delete=models.CASCADE,
         related_name='bills'
     )

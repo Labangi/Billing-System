@@ -1,0 +1,141 @@
+/* RESET */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Segoe UI", system-ui, sans-serif;
+}
+
+/* BODY */
+body {
+    background: #020617;
+    color: #e5e7eb;
+}
+
+/* ================= HEADER ================= */
+.header {
+    display: flex;
+    align-items: center;
+    padding: 16px 40px;
+    border-bottom: 1px solid #1e293b;
+}
+
+.logo-container h2 {
+    font-size: 26px;
+    font-weight: 600;
+}
+
+/* NAV LINKS — logout ke bilkul left */
+.nav-links {
+    display: flex;
+    gap: 22px;
+    margin-left: auto;
+    margin-right: 16px;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: #cbd5f5;
+    font-size: 14px;
+}
+
+.login-btn {
+    padding: 6px 16px;
+    border-radius: 20px;
+    font-size: 13px;
+    background: #1e293b;
+    color: #e5e7eb;
+    text-decoration: none;
+}
+
+/* ================= MAIN ================= */
+.features-section {
+    padding: 30px 40px;
+}
+
+/* WELCOME + ACTIONS SAME LINE */
+.welcome-section {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 24px;
+}
+
+.welcome-section h2 {
+    font-size: 28px;
+    font-weight: 600;
+}
+
+/* remove extra text */
+.sub-heading {
+    display: none;
+}
+
+/* ACTION BUTTONS — SAME ROW */
+.action-bar {
+    display: flex;
+    gap: 10px;
+}
+
+.btn {
+    padding: 6px 14px;
+    border-radius: 6px;
+    border: none;
+    font-size: 13px;
+    cursor: pointer;
+}
+
+.primary {
+    background: #2563eb;
+    color: #fff;
+}
+
+.secondary {
+    background: #1e293b;
+    color: #e5e7eb;
+}
+
+/* ================= SUMMARY ================= */
+/* hide Global Summary text */
+.summary-section h3 {
+    display: none;
+}
+
+/* ONE CLEAN BLOCK */
+.summary-section {
+    padding: 18px 0;
+}
+
+/* 5 cards — ek hi line feel */
+.cards-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 14px;
+}
+
+.feature-card {
+    padding: 14px;
+    border-radius: 8px;
+    background: rgba(255,255,255,0.03);
+    text-align: center;
+}
+
+.feature-card h4 {
+    font-size: 14px;
+    font-weight: 500;
+    margin-bottom: 4px;
+}
+
+.feature-card p {
+    font-size: 12px;
+    color: #94a3b8;
+}
+
+/* ================= BOTTOM ================= */
+.extra-section {
+    margin-top: 24px;
+}
+
+.extra-section .cards-grid {
+    grid-template-columns: repeat(2, 1fr);
+}
