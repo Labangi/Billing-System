@@ -1,0 +1,77 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us | CrediFlow</title>
+    <link rel="stylesheet" href="{% static 'about_us.css' %}">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <section class="hero">
+        <div class="hero-content">
+            <h1 class="reveal">Intelligence that <span class="gradient-text">grows with you.</span></h1>
+            <p class="reveal">We build robust billing systems that learn, scale, and endure.</p>
+        </div>
+    </section>
+
+    <section class="philosophy">
+        <div class="grid-container">
+            <div class="phi-card reveal">
+                <div class="card-glass">
+                    <span class="num">01</span>
+                    <h3>Clarity</h3>
+                    <p>We deeply understand the financial constraints and intent behind every transaction.</p>
+                </div>
+            </div>
+            <div class="phi-card reveal" style="transition-delay: 0.2s;">
+                <div class="card-glass">
+                    <span class="num">02</span>
+                    <h3>Execution</h3>
+                    <p>We design intelligent systems that work in real environments—not just demos.</p>
+                </div>
+            </div>
+            <div class="phi-card reveal" style="transition-delay: 0.4s;">
+                <div class="card-glass">
+                    <span class="num">03</span>
+                    <h3>Growth</h3>
+                    <p>Our goal is long-term value—technology that grows your business and adapts.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="team-section">
+        <h2 class="reveal">The Minds Behind CrediFlow</h2>
+        <div class="team-grid">
+            {% for i in "12345" %}
+            <div class="team-member reveal">
+                <div class="avatar-wrapper">
+                    <div class="avatar-glow"></div>
+                    <div class="avatar-box">
+                         <svg viewBox="0 0 24 24" fill="white" width="60"><path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/></svg>
+                    </div>
+                </div>
+                <h4>Expert {{ forloop.counter }}</h4>
+                <p>Systems Architect</p>
+            </div>
+            {% endfor %}
+        </div>
+    </section>
+
+    <script>
+        // Simple Scroll Reveal Logic
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                }
+            });
+        }, { threshold: 0.1 });
+
+        document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+    </script>
+</body>
+</html>
