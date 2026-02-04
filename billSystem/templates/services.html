@@ -1,0 +1,72 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Services | CrediFlow</title>
+    <link rel="stylesheet" href="{% static 'services.css' %}">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <section class="services-hero">
+        <div class="container">
+            <span class="badge reveal">Our Expertise</span>
+            <h1 class="reveal">Precision tools for <span class="gradient-text">financial scale.</span></h1>
+            <p class="reveal">We provide the technical infrastructure to automate your revenue operations from end to end.</p>
+        </div>
+    </section>
+
+    <section class="services-grid-section">
+        <div class="container grid-layout">
+            
+            <div class="service-card reveal">
+                <div class="card-image-container">
+                    <img src="{% static 'image4.png' %}" alt="Automated Invoicing">
+                </div>
+                <h3>Automated Invoicing</h3>
+                <p>Generate professional, tax-compliant invoices automatically based on your unique billing cycles.</p>
+                <ul class="feature-list">
+                    <li>Dynamic Tax Logic</li>
+                    <li>Multi-currency Support</li>
+                </ul>
+            </div>
+
+            <div class="service-card reveal" style="transition-delay: 0.1s;">
+                <div class="card-image-container">
+                    <img src="{% static 'image5.png' %}" alt="Subscription Management">
+                </div>
+                <h3>Subscription Management</h3>
+                <p>Handle recurring revenue, upgrades, and downgrades without manual intervention or errors.</p>
+                <ul class="feature-list">
+                    <li>Churn Prevention</li>
+                    <li>Automated Dunning</li>
+                </ul>
+            </div>
+
+            <div class="service-card reveal" style="transition-delay: 0.2s;">
+                <div class="card-image-container">
+                    <img src="{% static 'image6.png' %}" alt="Financial Analytics">
+                </div>
+                <h3>Financial Analytics</h3>
+                <p>Gain real-time insights into your cash flow, outstanding payments, and revenue growth trends.</p>
+                <ul class="feature-list">
+                    <li>Real-time Dashboards</li>
+                    <li>Audit-ready Reports</li>
+                </ul>
+            </div>
+
+        </div>
+    </section>
+
+    <script>
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) entry.target.classList.add('active');
+            });
+        }, { threshold: 0.1 });
+        document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+    </script>
+</body>
+</html>
