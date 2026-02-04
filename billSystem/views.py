@@ -54,3 +54,7 @@ def update_role(request, id):
         user.role = request.POST.get("role")
         user.save()
     return redirect("../show.html")
+def about_us(request):
+    return render(request,"about_us.html")
+def contact(request):
+    return render(request,"contact.html")
