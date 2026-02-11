@@ -63,3 +63,6 @@ def services(request):
 
 def admin_dashboard(request):
     return render(request, 'admin.html')
+
+def training_bills(request):
+    return render(request, 'training_bills.html')

@@ -136,3 +136,59 @@ body {
 .extra-section .cards-grid {
     grid-template-columns: repeat(2, 1fr);
 }
+/* FOR TRAINING_BILLS */
+/* SEARCH BOX */
+.search-box {
+    padding: 6px 10px;
+    border-radius: 6px;
+    border: 1px solid #1e293b;
+    background: #020617;
+    color: #e5e7eb;
+    font-size: 13px;
+}
+
+/* TABLE */
+.table-section {
+    margin-top: 20px;
+}
+
+.data-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 13px;
+}
+
+.data-table th {
+    text-align: left;
+    padding: 10px;
+    color: #94a3b8;
+    border-bottom: 1px solid #1e293b;
+}
+
+.data-table td {
+    padding: 10px;
+    border-bottom: 1px solid #1e293b;
+}
+
+/* BADGES */
+.badge {
+    padding: 4px 8px;
+    border-radius: 12px;
+    font-size: 11px;
+}
+
+.badge.yes {
+    background: #16a34a;
+    color: white;
+}
+
+.badge.pending {
+    background: #eab308;
+    color: black;
+}
+
+.badge.done {
+    background: #2563eb;
+    color: white;
+}
+

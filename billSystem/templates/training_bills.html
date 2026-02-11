@@ -1,0 +1,104 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>View Trainings - Admin</title>
+    <link rel="stylesheet" href="{% static 'dashboard.css' %}">
+</head>
+<body>
+
+<!-- HEADER -->
+<header class="header">
+    <div class="logo-container">
+        <h2>CrediFlow</h2>
+    </div>
+
+    <nav class="nav-links">
+        <a href="/admin-dashboard/">Dashboard</a>
+        <a href="#">Bills</a>
+    </nav>
+
+    <a href="/logout" class="login-btn">Logout</a>
+</header>
+
+<!-- MAIN -->
+<main class="features-section">
+
+    <!-- PAGE TITLE -->
+    <section class="welcome-section">
+        <h2>All Trainings (Admin)</h2>
+
+       <div class="action-bar center-search">
+    <input type="text" placeholder="Search vendor..." class="search-box large">
+</div>
+
+    </section>
+
+    <!-- TABLE -->
+    <section class="table-section">
+        <table class="data-table">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Training</th>
+                    <th>College</th>
+                    <th>Dates</th>
+                    <th>Vendor / Type</th>
+                    <th>Added By</th>
+                    <th>WO</th>
+                    <th>Attendance</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                {% if trainings %}
+                    {% for t in trainings %}
+                    <tr>
+                        <td>{{ t.id }}</td>
+                        <td>{{ t.training_name }}</td>
+                        <td>{{ t.college }}</td>
+                        <td>{{ t.start_date }} → {{ t.end_date }}</td>
+                        <td>{{ t.vendor }}</td>
+                        <td>{{ t.added_by }}</td>
+                        <td>
+                            <span class="badge yes">Yes</span>
+                        </td>
+                        <td>
+                           {% if t.attendance_status == "Pending Trainer" %}
+                                <span class="badge pending">Pending Trainer</span>
+
+                            {% elif t.attendance_status == "Pending College" %}
+                                <span class="badge pending">Pending College</span>
+
+                            {% elif t.attendance_status == "Completed" %}
+                                <span class="badge done">Completed</span>
+
+                            {% else %}
+                               <span class="badge pending">{{ t.attendance_status }}</span>
+                         {% endif %}
+                        </td>
+
+                        <td>
+                            <button class="btn primary">
+                                Attendance (PDF/print)
+                            </button>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                {% else %}
+                    <tr>
+                        <td colspan="9" class="empty-row">
+                            No training records available
+                        </td>
+                    </tr>
+                {% endif %}
+            </tbody>
+        </table>
+    </section>
+
+</main>
+
+</body>
+</html>
