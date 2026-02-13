@@ -66,3 +66,9 @@ def admin_dashboard(request):
 
 def training_bills(request):
     return render(request, 'training_bills.html')
+
+def view_users(request):
+    return render(request, 'view_users.html')
+
+def reminder(request):
+    return render(request, 'reminder.html')

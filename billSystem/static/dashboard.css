@@ -169,7 +169,7 @@ body {
     padding: 10px;
     border-bottom: 1px solid #1e293b;
 }
-
+/* THIS IS FOR VIEW_USERS DESIGN */
 /* BADGES */
 .badge {
     padding: 4px 8px;
@@ -192,3 +192,76 @@ body {
     color: white;
 }
 
+/* ROLE BADGES */
+.badge.admin {
+    background: #ef4444;
+    color: white;
+}
+
+.badge.subadmin {
+    background: #06b6d4;
+    color: white;
+}
+
+.badge.user {
+    background: #64748b;
+    color: white;
+}
+
+/* ROLE SELECT */
+.role-select {
+    padding: 6px;
+    border-radius: 6px;
+    background: #020617;
+    color: #e5e7eb;
+    border: 1px solid #1e293b;
+}
+
+/* UPDATE BUTTON */
+.btn.primary {
+    background: #2563eb;
+    color: white;
+}
+/* FOR REMINDER */
+.section-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+/* General Button */
+.btn {
+    padding: 8px 16px;
+    border: none;
+    border-radius: 6px;
+    font-size: 14px;
+    cursor: pointer;
+    font-weight: 500;
+}
+
+/* Blue */
+.due-btn {
+    background-color: #2563eb;
+    color: white;
+}
+
+.due-btn:hover {
+    background-color: #1e40af;
+}
+
+/* Red */
+.overdue-btn {
+    background-color: #dc2626;
+    color: white;
+}
+
+.overdue-btn:hover {
+    background-color: #b91c1c;
+}
+
+/* Small button */
+.small {
+    padding: 5px 10px;
+    font-size: 12px;
+}

@@ -11,4 +11,8 @@ urlpatterns=[
     path('services',views.services),
     path('admin-dashboard', views.admin_dashboard),
     path('training-bills', views.training_bills),
+    path('view-users', views.view_users),
+    path('reminder', views.reminder),
+
+
 ]
