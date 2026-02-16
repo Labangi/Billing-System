@@ -31,3 +31,15 @@ def logout(request):
         return render(request,'index.html')
     except KeyError:
         pass
+
+def insert(request):    
+    return render(request,'insert.html')
+
+def add_customer(request):
+    u=user()
+    u.username=request.GET['username']
+    u.email=request.GET['email']
+    u.pwd=request.GET['password']
+    u.role=request.GET['role']
+    u.save()
+    return redirect('../')
