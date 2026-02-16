@@ -7,40 +7,32 @@
 </head>
 <body>
     <h1>Show Users</h1>
-    <table>
+    <table border="1" cellpadding="10">
     <tr>
         <th>Name</th>
         <th>Email</th>
         <th>Role</th>
-        <th>Action</th>
-        <th>Action</th>
     </tr>
 
-    {% for i in data %}
+    {% for i in users %}
     <tr>
         <td>{{ i.name }}</td>
         <td>{{ i.email }}</td>
 
-        <!-- Role dropdown -->
         <td>
-            <form method="post" action="{% url 'update_role' i.id %}">
+            <form method="post" action="../update_role/{{users.id}}">
                 {% csrf_token %}
                 <select name="role" onchange="this.form.submit()">
-                    <option value="super_admin" {% if i.role == 'super_admin' %}selected{% endif %}>
-                        Super Admin
-                    </option>
-                    <option value="sub_admin" {% if i.role == 'sub_admin' %}selected{% endif %}>
-                        Sub Admin
-                    </option>
-                    <option value="user" {% if i.role == 'user' %}selected{% endif %}>
-                        User
-                    </option>
+                    <option value="super_admin" {% if i.role == 'super_admin' %}selected{% endif %}>Super Admin</option>
+                    <option value="sub_admin" {% if i.role == 'sub_admin' %}selected{% endif %}>Sub Admin</option>
+                    <option value="user" {% if i.role == 'user' %}selected{% endif %}>User</option>
                 </select>
             </form>
         </td>
     </tr>
     {% endfor %}
 </table>
+
 
 </body>
 </html>

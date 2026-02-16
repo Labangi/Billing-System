@@ -4,40 +4,72 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CrediFlow - Login</title>
-    <link rel="stylesheet" href="{% static 'style.css' %}">
+    <title>Login - CrediFlow</title>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="{% static 'login.css' %}">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
 
-    <div class="login-wrapper">
-        
-        <h1 class="page-title">Login....</h1>
+    <div class="background">
+        <div class="shape shape-1"></div>
+        <div class="shape shape-2"></div>
+        <div class="shape shape-3"></div>
+    </div>
 
-        <div class="login-card">
-            <h2 class="form-title">Login</h2>
-
-            <form method="POST" action="loginn">
-                {% csrf_token %}
-                
-                <div class="form-group">
-                    <label for="username">Username</label>
-                    <input type="text" id="username" name="username" placeholder="Enter your username" required>
-                </div>
-
-                <div class="form-group">
-                    <label for="password">Password</label>
-                    <input type="password" id="password" name="password" placeholder="Enter your password" required>
-                </div>
-
-                <button type="submit" class="btn-primary">Login</button>
-            </form>
-
-            <div class="divider">Or</div>
-
-            <button type="button" class="btn-outline">Continue with Google</button>
-            <button type="button" class="btn-outline">Continue with Email</button>
+    <div class="login-container">
+        <div class="login-header">
+            <div class="brand-logo">
+                <img src="{% static 'image3.png' %}" alt="CrediFlow Logo" class="logo-img">
+            </div>
+            <h2>Welcome Back</h2>
+            <p>Access your intelligent billing dashboard</p>
         </div>
 
+        <form class="login-form">
+            
+            <div class="input-group">
+                <input type="text" id="username" required autocomplete="off">
+                <label for="username">Username</label>
+                <i class="fa-regular fa-user input-icon"></i>
+            </div>
+
+            <div class="input-group">
+                <input type="password" id="password" required autocomplete="off">
+                <label for="password">Password</label>
+                <i class="fa-solid fa-lock input-icon"></i>
+            </div>
+
+            <div class="form-actions">
+                <label class="checkbox-container">
+                    <input type="checkbox">
+                    <span class="checkmark"></span>
+                    Remember me
+                </label>
+                <a href="#" class="forgot-pass">Forgot Password?</a>
+            </div>
+
+            <button type="submit" class="btn-primary">
+                Sign In <i class="fa-solid fa-arrow-right"></i>
+            </button>
+        </form>
+
+        <div class="divider">
+            <span>Or continue with</span>
+        </div>
+
+        <div class="social-login">
+            <button class="btn-social google">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/c/c1/Google_%22G%22_logo.svg" alt="Google">
+                <span>Google</span>
+            </button>
+            <button class="btn-social email">
+                <i class="fa-regular fa-envelope"></i>
+                <span>Email Magic Link</span>
+            </button>
+        </div>
     </div>
 
 </body>

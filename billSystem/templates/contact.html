@@ -1,0 +1,69 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us | CrediFlow</title>
+    <link rel="stylesheet" href="{% static 'contact.css' %}">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <div class="contact-wrapper">
+        <div class="contact-info reveal">
+            <span class="badge">Get in Touch</span>
+            <h1>Let’s talk about your <span class="gradient-text">billing needs.</span></h1>
+            <p>Whether you're a startup or an enterprise, our team is here to help you automate your financial workflow.</p>
+            
+            <div class="info-items">
+                <div class="item">
+                    <div class="icon-circle">✉️</div>
+                    <div>
+                        <h4>Email us</h4>
+                        <p>support@crediflow.com</p>
+                    </div>
+                </div>
+                <div class="item">
+                    <div class="icon-circle">📍</div>
+                    <div>
+                        <h4>Visit us</h4>
+                        <p>Vivekananda Sarani, Asansol</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="contact-form-container reveal" style="transition-delay: 0.2s;">
+            <form class="glass-form" method="POST">
+                {% csrf_token %}
+                <div class="input-group">
+                    <label>Full Name</label>
+                    <input type="text" name="name" placeholder="John Doe" required>
+                </div>
+                <div class="input-group">
+                    <label>Business Email</label>
+                    <input type="email" name="email" placeholder="john@company.com" required>
+                </div>
+                <div class="input-group">
+                    <label>Message</label>
+                    <textarea name="message" rows="5" placeholder="Tell us about your project..."></textarea>
+                </div>
+                <button type="submit" class="submit-btn">
+                    <span>Send Message</span>
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) entry.target.classList.add('active');
+            });
+        }, { threshold: 0.1 });
+        document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+    </script>
+</body>
+</html>

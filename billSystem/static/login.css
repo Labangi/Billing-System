@@ -1,0 +1,347 @@
+/* --- VARIABLES --- */
+:root {
+    --bg-color: #0f172a;       /* Deep Slate Blue */
+    --glass-bg: rgba(30, 41, 59, 0.7); /* Translucent Card */
+    --glass-border: rgba(255, 255, 255, 0.08);
+    --primary-accent: #e0eaee; /* Sky Blue for focus */
+    --text-main: #f1f5f9;
+    --text-muted: #94a3b8;
+    --white: #ffffff;
+    --shape-1-color: linear-gradient(#5c312d, #71645d);
+    --shape-2-color: linear-gradient(#5c312d, #71645d);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Outfit', sans-serif;
+}
+
+body {
+    background-color: var(--bg-color);
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    position: relative;
+}
+
+/* --- ANIMATED BACKGROUND SHAPES --- */
+.background {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    z-index: 0;
+}
+
+.shape {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(80px);
+    opacity: 0.6;
+    animation: float 10s infinite alternate;
+}
+
+.shape-1 {
+    width: 400px;
+    height: 400px;
+    background: var(--shape-1-color);
+    top: -50px;
+    left: -100px;
+}
+
+.shape-2 {
+    width: 300px;
+    height: 300px;
+    background: var(--shape-2-color);
+    bottom: -50px;
+    right: -50px;
+    animation-duration: 12s;
+}
+
+.shape-3 {
+    width: 200px;
+    height: 200px;
+    background: #ffffff;
+    opacity: 0.1;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    animation: pulse 8s infinite;
+}
+
+@keyframes float {
+    0% { transform: translate(0, 0); }
+    100% { transform: translate(30px, 50px); }
+}
+
+@keyframes pulse {
+    0% { transform: translate(-50%, -50%) scale(1); opacity: 0.1; }
+    50% { transform: translate(-50%, -50%) scale(1.2); opacity: 0.15; }
+    100% { transform: translate(-50%, -50%) scale(1); opacity: 0.1; }
+}
+
+/* --- GLASS CARD CONTAINER --- */
+.login-container {
+    position: relative;
+    width: 400px;
+    padding: 3rem;
+    background: var(--glass-bg);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px); /* Safari support */
+    border: 1px solid var(--glass-border);
+    border-radius: 24px;
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+    z-index: 1;
+    animation: slideUp 0.8s ease-out;
+}
+
+@keyframes slideUp {
+    from { transform: translateY(50px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+}
+
+/* --- HEADER --- */
+.login-header {
+    text-align: center;
+    margin-bottom: 2.5rem;
+}
+
+/* --- UPDATED LOGO STYLES --- */
+.brand-logo {
+    width: 80px;  /* Increased size for better visibility */
+    height: 80px;
+    background: transparent; /* Removes the purple box */
+    border-radius: 0; /* Removes box rounding */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 1.5rem; /* Adjusted margin */
+    box-shadow: none; /* Removes the box glow */
+}
+
+.logo-img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain; /* Ensures the logo scales without distortion */
+    filter: drop-shadow(0 4px 6px rgba(0,0,0,0.3)); /* Adds a subtle shadow to the image itself */
+}
+
+.login-header h2 {
+    color: var(--text-main);
+    font-size: 1.75rem;
+    font-weight: 600;
+}
+
+.login-header p {
+    color: var(--text-muted);
+    font-size: 0.9rem;
+    margin-top: 0.5rem;
+}
+
+/* --- INPUTS WITH FLOATING LABELS --- */
+.input-group {
+    position: relative;
+    margin-bottom: 1.5rem;
+}
+
+.input-group input {
+    width: 100%;
+    padding: 1rem 1rem 1rem 2.8rem;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid var(--glass-border);
+    border-radius: 12px;
+    color: var(--text-main);
+    font-size: 1rem;
+    outline: none;
+    transition: all 0.3s ease;
+}
+
+/* Focus State */
+.input-group input:focus,
+.input-group input:valid {
+    border-color: var(--primary-accent);
+    background: rgba(255, 255, 255, 0.05);
+    box-shadow: 0 0 0 4px rgba(56, 189, 248, 0.1);
+}
+
+.input-group label {
+    position: absolute;
+    left: 2.8rem;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--text-muted);
+    pointer-events: none;
+    transition: 0.3s ease;
+    font-size: 1rem;
+}
+
+/* Floating Label Animation */
+.input-group input:focus ~ label,
+.input-group input:valid ~ label {
+    top: 0;
+    left: 1rem;
+    font-size: 0.75rem;
+    padding: 0 0.4rem;
+    background: var(--bg-color); /* Match bg to hide line */
+    background: linear-gradient(180deg, transparent 50%, var(--glass-bg) 50%); /* Clever hack to match glass */
+    color: var(--primary-accent);
+    border-radius: 4px;
+}
+
+.input-icon {
+    position: absolute;
+    left: 1rem;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--text-muted);
+    transition: 0.3s;
+}
+
+.input-group input:focus ~ .input-icon {
+    color: var(--primary-accent);
+}
+
+/* --- ACTIONS (Checkbox & Forgot Pass) --- */
+.form-actions {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2rem;
+    font-size: 0.9rem;
+}
+
+.checkbox-container {
+    display: flex;
+    align-items: center;
+    color: var(--text-muted);
+    cursor: pointer;
+    user-select: none;
+}
+
+.checkbox-container input {
+    display: none;
+}
+
+.checkmark {
+    width: 18px;
+    height: 18px;
+    border: 1px solid var(--text-muted);
+    border-radius: 4px;
+    margin-right: 8px;
+    position: relative;
+    transition: 0.2s;
+}
+
+.checkbox-container input:checked ~ .checkmark {
+    background: var(--primary-accent);
+    border-color: var(--primary-accent);
+}
+
+.checkbox-container input:checked ~ .checkmark::after {
+    content: '✔';
+    font-size: 10px;
+    color: var(--bg-color);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.forgot-pass {
+    color: var(--primary-accent);
+    text-decoration: none;
+    font-weight: 500;
+}
+
+/* --- BUTTONS --- */
+.btn-primary {
+    width: 100%;
+    padding: 1rem;
+    background: linear-gradient(135deg, var(--primary-accent), #6f2424);
+    color: white;
+    border: none;
+    border-radius: 12px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: transform 0.2s, box-shadow 0.2s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+.btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 20px rgba(56, 189, 248, 0.3);
+}
+
+/* --- DIVIDER --- */
+.divider {
+    display: flex;
+    align-items: center;
+    text-align: center;
+    margin: 2rem 0;
+    color: var(--text-muted);
+    font-size: 0.85rem;
+}
+
+.divider::before, .divider::after {
+    content: '';
+    flex: 1;
+    border-bottom: 1px solid var(--glass-border);
+}
+
+.divider span {
+    padding: 0 10px;
+}
+
+/* --- SOCIAL LOGIN --- */
+.social-login {
+    display: flex;
+    gap: 1rem;
+}
+
+.btn-social {
+    flex: 1;
+    padding: 0.8rem;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid var(--glass-border);
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    color: var(--text-main);
+    cursor: pointer;
+    transition: 0.3s;
+    font-size: 0.9rem;
+}
+
+.btn-social img {
+    width: 20px;
+}
+
+.btn-social:hover {
+    background: rgba(255, 255, 255, 0.1);
+    transform: translateY(-2px);
+}
+
+/* --- FOOTER --- */
+.signup-link {
+    text-align: center;
+    margin-top: 2rem;
+    color: var(--text-muted);
+    font-size: 0.9rem;
+}
+
+.signup-link a {
+    color: var(--primary-accent);
+    text-decoration: none;
+    font-weight: 600;
+}

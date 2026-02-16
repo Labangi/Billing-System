@@ -1,0 +1,126 @@
+:root {
+    --bg: #544848;
+    --accent: #c7d8b0;
+    --glass: rgba(198, 81, 81, 0.03);
+    --border: rgba(255, 255, 255, 0.1);
+}
+
+body {
+    margin: 0;
+    background-color: var(--bg);
+    color: #fff;
+    font-family: 'Inter', sans-serif;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.contact-wrapper {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    max-width: 1200px;
+    width: 90%;
+    gap: 60px;
+}
+
+/* Info Styling */
+.badge {
+    background: var(--glass);
+    padding: 6px 12px;
+    border-radius: 20px;
+    border: 1px solid var(--border);
+    font-size: 0.8rem;
+    color: var(--accent);
+}
+
+.contact-info h1 { font-size: 3.5rem; margin: 20px 0; }
+.gradient-text { background: linear-gradient(90deg, #c2d2d6, #c2d2d6); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+
+.info-items { margin-top: 40px; }
+.item { display: flex; align-items: center; gap: 20px; margin-bottom: 25px; }
+.icon-circle {
+    width: 50px; height: 50px;
+    background: var(--glass);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid var(--border);
+}
+
+/* Form Styling */
+/* --- UPDATED FORM STYLING FOR MAXIMUM VISIBILITY --- */
+
+.glass-form {
+    background: rgba(255, 255, 255, 0.08); /* Brighter glass for the container */
+    padding: 40px;
+    border-radius: 30px;
+    border: 1px solid rgba(255, 255, 255, 0.2); /* Stronger border visibility */
+    backdrop-filter: blur(15px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+}
+
+.input-group { 
+    margin-bottom: 25px; 
+}
+
+/* HIGH VISIBILITY LABELS */
+.input-group label { 
+    display: block; 
+    margin-bottom: 12px; 
+    font-size: 1rem; 
+    color: #ffffff;      /* Pure white for maximum contrast against #544848 */
+    font-weight: 700;    /* Bolded for instant readability */
+    letter-spacing: 0.5px;
+    text-transform: uppercase; 
+}
+
+/* HIGH VISIBILITY INPUT FIELDS */
+.input-group input, .input-group textarea {
+    width: 100%;
+    background: rgba(255, 255, 255, 0.12); /* More opaque field background */
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    padding: 15px;
+    border-radius: 12px;
+    color: #ffffff;
+    font-size: 1rem;
+    outline: none;
+    transition: all 0.3s ease;
+}
+
+/* INTERACTIVE FOCUS STATE */
+.input-group input:focus, .input-group textarea:focus { 
+    border-color: var(--accent); 
+    background: rgba(255, 255, 255, 0.18);
+    box-shadow: 0 0 20px rgba(199, 216, 176, 0.4); /* Glow matching your --accent */
+    transform: scale(1.01); /* Subtle "pop" effect when typing */
+}
+
+/* --- END OF UPDATED SECTION --- */
+.submit-btn {
+    width: 100%;
+    padding: 15px;
+    background: #fff;
+    color: #000;
+    border: none;
+    border-radius: 10px;
+    font-weight: 600;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    transition: 0.3s;
+}
+
+.submit-btn:hover { transform: scale(1.02); background: var(--accent); color: white; }
+
+/* Reveal Animation */
+.reveal { opacity: 0; transform: translateY(20px); transition: 0.8s ease-out; }
+.reveal.active { opacity: 1; transform: translateY(0); }
+
+@media (max-width: 900px) {
+    .contact-wrapper { grid-template-columns: 1fr; text-align: center; }
+    .item { justify-content: center; }
+}

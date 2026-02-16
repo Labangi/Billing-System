@@ -1,0 +1,109 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>View Users - Admin</title>
+    <link rel="stylesheet" href="{% static 'dashboard.css' %}">
+</head>
+
+<body>
+
+<!-- HEADER -->
+<header class="header">
+    <div class="logo-container">
+        <h2>CrediFlow</h2>
+    </div>
+
+    <nav class="nav-links">
+        <a href="/admin-dashboard">Dashboard</a>
+        <a href="/training-bills">View Trainings</a>
+    </nav>
+
+    <a href="/logout" class="login-btn">Logout</a>
+</header>
+
+<!-- MAIN -->
+<main class="features-section">
+
+    <!-- TITLE -->
+    <section class="welcome-section">
+        <h2>Users & Roles</h2>
+    </section>
+
+    <!-- TABLE -->
+    <section class="table-section">
+        <table class="data-table">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Username</th>
+                    <th>Full Name</th>
+                    <th>Email</th>
+                    <th>Current Role</th>
+                    <th>Change Role</th>
+                    <th>Created</th>
+                    
+                </tr>
+            </thead>
+
+            <tbody>
+                {% if users %}
+                    {% for user in users %}
+                    <tr>
+                        <td>{{ user.id }}</td>
+                        <td>{{ user.username }}</td>
+                        <td>{{ user.full_name }}</td>
+                        <td>{{ user.email }}</td>
+
+                        <!-- CURRENT ROLE -->
+                        <td>
+                            {% if user.role == "admin" %}
+                                <span class="badge admin">Admin</span>
+                            {% elif user.role == "subadmin" %}
+                                <span class="badge subadmin">Subadmin</span>
+                            {% else %}
+                                <span class="badge user">User</span>
+                            {% endif %}
+                        </td>
+
+                        <!-- CHANGE ROLE -->
+                        <td>
+                            <form method="POST">
+                                {% csrf_token %}
+                                <input type="hidden" name="user_id" value="{{ user.id }}">
+
+                                <select name="new_role" class="role-select">
+                                    <option value="user">User</option>
+                                    <option value="subadmin">Subadmin</option>
+                                    <option value="admin">Admin</option>
+                                </select>
+                        </td>
+
+                        <td>{{ user.created_at }}</td>
+
+                        <!-- UPDATE BUTTON -->
+                        <td>
+                                <button type="submit" class="btn primary">
+                                    Update
+                                </button>
+                            </form>
+                        </td>
+
+                    </tr>
+                    {% endfor %}
+                {% else %}
+                    <tr>
+                        <td colspan="8" class="empty-row">
+                            No users available
+                        </td>
+                    </tr>
+                {% endif %}
+            </tbody>
+        </table>
+    </section>
+
+</main>
+
+</body>
+</html>

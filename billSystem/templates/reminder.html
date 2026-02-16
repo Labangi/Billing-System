@@ -1,0 +1,144 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bill Reminders</title>
+    <link rel="stylesheet" href="{% static 'dashboard.css' %}">
+</head>
+<body>
+
+<!-- HEADER -->
+<header class="header">
+    <div class="logo-container">
+        <h2>CrediFlow</h2>
+    </div>
+
+    <nav class="nav-links">
+        <a href="/admin-dashboard">Dashboard</a>
+        <a href="/all-bills">All Bills</a>
+    </nav>
+
+</header>
+
+<!-- MAIN -->
+<main class="features-section">
+
+    <section class="welcome-section">
+        <h2>Training-wise Bill Reminders</h2>
+    </section>
+
+    <!--  DUE SOON -->
+    <section class="table-section">
+
+        <div class="section-header">
+            <h3>Due Soon (Next 7 Days)</h3>
+
+            <button class="btn due-btn">
+                Send All Due Reminders
+            </button>
+        </div>
+
+        <table class="data-table">
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th>Invoice</th>
+                    <th>Training</th>
+                    <th>Vendor</th>
+                    <th>Amount Due</th>
+                    <th>Status</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                {% if due_soon_bills %}
+                    {% for bill in due_soon_bills %}
+                    <tr>
+                        <td>{{ forloop.counter }}</td>
+                        <td>{{ bill.invoice_no }}</td>
+                        <td>{{ bill.training }}</td>
+                        <td>{{ bill.vendor }}</td>
+                        <td>₹{{ bill.amount }}</td>
+                        <td>
+                            <span class="badge warning">Due Soon</span>
+                        </td>
+                        <td>
+                            <button class="btn small due-btn">
+                                Send Reminder
+                            </button>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                {% else %}
+                    <tr>
+                        <td colspan="7" class="empty-row">
+                            Nothing due within 7 days.
+                        </td>
+                    </tr>
+                {% endif %}
+            </tbody>
+        </table>
+    </section>
+
+
+    <!-- OVERDUE  -->
+    <section class="table-section" style="margin-top:40px;">
+
+        <div class="section-header">
+            <h3>Overdue Bills</h3>
+
+            <button class="btn overdue-btn">
+                Send All Overdue Reminders
+            </button>
+        </div>
+
+        <table class="data-table">
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th>Invoice</th>
+                    <th>Training</th>
+                    <th>Vendor</th>
+                    <th>Amount Due</th>
+                    <th>Status</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                {% if overdue_bills %}
+                    {% for bill in overdue_bills %}
+                    <tr>
+                        <td>{{ forloop.counter }}</td>
+                        <td>{{ bill.invoice_no }}</td>
+                        <td>{{ bill.training }}</td>
+                        <td>{{ bill.vendor }}</td>
+                        <td>₹{{ bill.amount }}</td>
+                        <td>
+                            <span class="badge danger">Overdue</span>
+                        </td>
+                        <td>
+                            <button class="btn small overdue-btn">
+                                Send Reminder
+                            </button>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                {% else %}
+                    <tr>
+                        <td colspan="7" class="empty-row">
+                            No overdue bills.
+                        </td>
+                    </tr>
+                {% endif %}
+            </tbody>
+        </table>
+
+    </section>
+
+</main>
+
+</body>
+</html>
